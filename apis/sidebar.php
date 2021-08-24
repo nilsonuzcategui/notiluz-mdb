@@ -45,7 +45,7 @@
             </h6>
             <ul class="nav flex-column mb-2">
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="<?= $ruta_inicio ?>/ofrenda-misionera/">
                   <span data-feather="heart"></span>
                   Ofrenda Misionera
                 </a>
