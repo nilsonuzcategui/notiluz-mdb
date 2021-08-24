@@ -259,7 +259,7 @@
                     
                     
                     <div class="list-group">
-                      <a href="#" class="list-group-item list-group-item-action">
+                      <a href="<?=$ruta_inicio?>/notialegria/" class="list-group-item list-group-item-action">
                         Notialegria
                       </a>
                       <a type="button" class="list-group-item list-group-item-action">
