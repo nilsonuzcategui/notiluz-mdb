@@ -85,17 +85,21 @@ $preguntas = obtener_preguntas();
                             <!-- Name input -->
                             <div class="form-outline mb-4">
                                 <input type="text" name="nombre" id="form4Example1" class="form-control" />
-                                <label class="form-label" for="form4Example1" >Nombre y Apellido (opcional)</label>
+                                <label class="form-label" for="form4Example1">Nombre y Apellido (opcional)</label>
                             </div>
 
                             <!-- Message input -->
                             <div class="form-outline mb-4">
                                 <textarea class="form-control" name="pregunta" id="form4Example3" rows="4" required></textarea>
-                                <label class="form-label" for="form4Example3" >Pregunta</label>
+                                <label class="form-label" for="form4Example3">Pregunta</label>
                             </div>
 
                             <!-- Submit button -->
-                            <button type="submit" class="btn btn-primary btn-block mb-4">Enviar Pregunta <i class="fas fa-paper-plane"></i></button>
+                            <button type="submit" class="btn btn-primary btn-block mb-4" id="boton-form">Enviar Pregunta <i class="fas fa-paper-plane"></i></button>
+                            <button class="btn btn-primary btn-block mb-4" type="button" disabled id="boton-loading" style="display: none;">
+                                <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                                Enviando...
+                            </button>
                         </form>
                         <div class="col-md-2"></div>
 
@@ -103,30 +107,47 @@ $preguntas = obtener_preguntas();
                             <h2 class="titulo-fuente">Preguntas</h2>
                             <hr>
 
-                            <?php 
+                            <?php
                             if ($preguntas != 0) { //si existen preguntas
                                 foreach ($preguntas as $row) {
-                                    $icono = ($row['destacado'] == 1) ? '<i class="far fa-star" style="color: gold;"></i>' : '' ;
+                                    //ver si tiene respuesta
+                                    $html_respuesta = '';
+                                    if ($row['respuesta'] != '') {
+                                        $html_respuesta = '
+                                        <span class="dpl-newmdb-docs-alert">
+                                            <div class="alert alert-info d-flex justify-content-between" role="alert" data-mdb-color="info">
+
+                                            <p class="mb-0">
+                                            <i class="fas fa-check"></i>
+                                                '.$row['respuesta'].'
+                                            </p>
+
+                                            </div>
+                                        </span>
+                                        ';
+                                    }
+
+                                    $icono = ($row['destacado'] == 1) ? '<i class="far fa-star" style="color: gold;"></i>' : '';
                                     echo '
                                     <div class="card mb-3">
                                         <div class="row g-0">
                                             <div class="col-md-1 text-center">
-                                                <img src="'.$ruta_inicio.'/img/logo.png" class="img-fluid" style="max-width: 70px;" />
+                                                <img src="' . $ruta_inicio . '/img/logo.png" class="img-fluid" style="max-width: 70px;" />
                                             </div>
                                             <div class="col-md-11" style="margin: auto 0;display: flex;justify-content: space-between;">
                                                 <div class="ms-3">
-                                                    <h5 class="card-title">'.$row['nombre'].'</h5>
+                                                    <h5 class="card-title">' . $row['nombre'] . '</h5>
                                                     <p class="card-text">
                                                         <small class="text-muted"><i class="far fa-calendar-alt"></i>
                                                             <script>
-                                                                document.write(moment("'.$row['fecha'].'").format("MMMM Do YYYY, h:mm:ss a"));
+                                                                document.write(moment("' . $row['fecha'] . '").format("MMMM Do YYYY, h:mm:ss a"));
                                                             </script>
                                                         </small>
                                                     </p>
                                                 </div>
 
                                                 <div style="margin-right: 10px;">
-                                                    '.$icono.'
+                                                    ' . $icono . '
                                                 </div>
                                                 
                                             </div>
@@ -135,16 +156,17 @@ $preguntas = obtener_preguntas();
 
                                                     <p class="card-text">
                                                     <i class="far fa-question-circle"></i> 
-                                                    '.$row['pregunta'].' 
+                                                    ' . $row['pregunta'] . ' 
                                                     </p>
-
+                                                    
+                                                    '.$html_respuesta.'
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     ';
                                 }
-                            }else {
+                            } else {
                                 echo 'no hay preguntas';
                             }
                             ?>

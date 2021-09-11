@@ -10,11 +10,11 @@ $array = array(
 include_once('funciones.php');
 $mysqli = on_bd();
 
-$opt = (isset($datos['opt'])) ? limpiar($datos['opt']) : '';
+$opt = (isset($_POST['opt'])) ? limpiar($_POST['opt']) : '';
 
-$nombre = (isset($datos['nombre'])) ? limpiar($datos['nombre']) : 'Anónimo';
-$correo = (isset($datos['correo'])) ? limpiar($datos['correo']) : '';
-$pregunta = (isset($datos['pregunta'])) ? limpiar($datos['pregunta']) : '';
+$nombre = (isset($_POST['nombre'])) ? limpiar($_POST['nombre']) : 'Anónimo';
+$correo = (isset($_POST['correo'])) ? limpiar($_POST['correo']) : '';
+$pregunta = (isset($_POST['pregunta'])) ? limpiar($_POST['pregunta']) : '';
 
 
 if($opt == 'obtener_preguntas'){

@@ -25,6 +25,8 @@ if($_SERVER['SERVER_NAME'] == 'localhost' || $_SERVER['SERVER_NAME'] == '192.168
 <script src="<?=$ruta_inicio?>/js/jquery-2.2.4.min.js"></script>
 <script src="<?=$ruta_inicio?>/js/moment-with-locales.js"></script>
 
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 <script>
     moment.locale('es');
 </script>
