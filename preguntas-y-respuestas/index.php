@@ -84,14 +84,14 @@ $preguntas = obtener_preguntas();
                         <form class="col-md-12 mb-4" id="form-preguntas">
                             <!-- Name input -->
                             <div class="form-outline mb-4">
-                                <input type="text" id="form4Example1" class="form-control" />
-                                <label class="form-label" for="form4Example1" name="nombre">Nombre y Apellido (opcional)</label>
+                                <input type="text" name="nombre" id="form4Example1" class="form-control" />
+                                <label class="form-label" for="form4Example1" >Nombre y Apellido (opcional)</label>
                             </div>
 
                             <!-- Message input -->
                             <div class="form-outline mb-4">
-                                <textarea class="form-control" id="form4Example3" rows="4"></textarea>
-                                <label class="form-label" for="form4Example3" name="pregunta">Pregunta</label>
+                                <textarea class="form-control" name="pregunta" id="form4Example3" rows="4" required></textarea>
+                                <label class="form-label" for="form4Example3" >Pregunta</label>
                             </div>
 
                             <!-- Submit button -->
