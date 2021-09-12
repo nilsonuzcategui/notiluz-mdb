@@ -110,7 +110,7 @@
                       <a href="<?=$ruta_inicio?>/preguntas-y-respuestas/" class="list-group-item list-group-item-action">
                         Preguntas y Respuestas
                       </a>
-                      <a href="#" class="list-group-item list-group-item-action">
+                      <a href="libros" class="list-group-item list-group-item-action">
                         Libros
                       </a>
                     </div>
@@ -262,7 +262,7 @@
                       <a href="<?=$ruta_inicio?>/notialegria/" class="list-group-item list-group-item-action">
                         Notialegria
                       </a>
-                      <a type="button" class="list-group-item list-group-item-action">
+                      <a href="agroecoluz/" class="list-group-item list-group-item-action">
                         Agroecoluz
                       </a>
                       <a type="button" class="list-group-item list-group-item-action">
