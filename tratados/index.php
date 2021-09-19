@@ -45,14 +45,17 @@ if ($tratadoUrl != '') {
     <html lang="en">
 
     <head>
-        <?php include_once('../apis/head.php') ?>
+        <?php 
+            include_once('../apis/head.php');
+            $descriptionAux = 'En este espacio encontrarás una serie de tratados de nuestro amado Pastor: Jaime Puertas.';
+        ?>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta http-equiv="x-ua-compatible" content="ie=edge" />
         <title>Tratados | Notiluz</title>
-        <meta name="description" content="Aquí encontrarás las  explícitas Noticias, de nuestra amada 'Obra Luz del Mundo' a nivel Nacional e Internacional y otros aconteceres del mundo cristiano, las mejores y más importantes acciones de nuestro día a día las podrás disfrutar aquí.">
-        <meta property="og:title" content="Notiluz | Noticias Luz del Mundo" />
-        <meta property="og:description" content="Aquí encontrarás las  explícitas Noticias, de nuestra amada 'Obra Luz del Mundo' a nivel Nacional e Internacional y otros aconteceres del mundo cristiano, las mejores y más importantes acciones de nuestro día a día las podrás disfrutar aquí." />
+        <meta name="description" content="<?=$descriptionAux?>">
+        <meta property="og:title" content="Tratados | Notiluz" />
+        <meta property="og:description" content="<?=$descriptionAux?>" />
         <meta property="og:url" content="hptts://notiluz.com/">
         <meta property="og:site_name" content="Notiluz" />
         <meta property="og:image" content="<?= $ruta_inicio ?>/img/logo-para-redes.png" />
