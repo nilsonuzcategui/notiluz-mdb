@@ -293,6 +293,53 @@ function obtener_preguntas(){
 }
 
 
+function obtener_tratados(){
+  $mysqli = on_bd();
+  $sql = "SELECT * 
+  FROM tratados t
+  INNER JOIN tratado_imagenes ti ON t.idtratado = ti.idtratado
+  WHERE t.status = 1 AND ti.posicion = 1";
+  $result = $mysqli->query($sql);
+  if($mysqli->affected_rows > 0 ){
+    $array = array();
+    while($row = $result->fetch_array(MYSQLI_ASSOC)){
+      array_push($array,$row);
+    }
+    $return =  $array;
+  }else {
+    $return = 0;
+  }
+  off_bd($mysqli);
+  return $return;
+}
+
+function obtener_tratado($tratado_url){
+  $mysqli = on_bd();
+  $sql = "SELECT * FROM tratados WHERE tratado_url = '$tratado_url' LIMIT 1";
+  $result = $mysqli->query($sql);
+  if($mysqli->affected_rows > 0 ){
+    $return = $result->fetch_array(MYSQLI_ASSOC);
+  }else {
+    $return = 0;
+  }
+  off_bd($mysqli);
+  return $return; 
+}
+
+function obtener_tratado_img($idtratado){
+  $mysqli = on_bd();
+  $sql = "SELECT * FROM tratado_imagenes WHERE idtratado = $idtratado AND posicion = 1 ORDER BY posicion ASC LIMIT 1";
+  $result = $mysqli->query($sql);
+  if($mysqli->affected_rows > 0 ){
+    $return = $result->fetch_array(MYSQLI_ASSOC);
+  }else {
+    $return = 0;
+  }
+  off_bd($mysqli);
+  return $return;
+}
+
+
 
 //---------------------------------------LIMPIAR INPUT DE INYECCIONES SQL-----------------------------------------------------------
 function cleanInput($input) {

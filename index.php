@@ -104,7 +104,7 @@
                       <a href="#" class="list-group-item list-group-item-action">
                         Micros
                       </a>
-                      <a type="button" class="list-group-item list-group-item-action">
+                      <a href="tratados/" class="list-group-item list-group-item-action">
                         Tratados
                       </a>
                       <a href="<?=$ruta_inicio?>/preguntas-y-respuestas/" class="list-group-item list-group-item-action">
@@ -259,6 +259,9 @@
                     
                     
                     <div class="list-group">
+                      <a href="<?=$ruta_inicio?>/noticias/" class="list-group-item list-group-item-action">
+                        Noticias
+                      </a>
                       <a href="<?=$ruta_inicio?>/notialegria/" class="list-group-item list-group-item-action">
                         Notialegria
                       </a>
