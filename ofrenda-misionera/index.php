@@ -52,7 +52,7 @@
                             <hr>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-6 mb-3">
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title">Desde Venezuela</h5>
@@ -64,7 +64,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 mb-3">
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title">Desde Otros Paises</h5>

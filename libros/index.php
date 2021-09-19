@@ -48,7 +48,7 @@
                             <hr>
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-4 mb-3">
                             <div class="card">
                                 <div class="card-body">
                                     <img src="portadas/joyas-luz-del-mundo.jpg" alt="luz del mundo - joyas luz del mundo" style="width: 100%;">
@@ -62,7 +62,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-4 mb-3">
                             <div class="card">
                                 <div class="card-body">
                                     <img src="portadas/tierra-santa-redes.jpg" alt="luz del mundo - tierra santa es" style="width: 100%;">
@@ -77,7 +77,7 @@
                         </div>
 
 
-                        <div class="col-md-4">
+                        <div class="col-md-4 mb-3">
                             <div class="card">
                                 <div class="card-body">
                                     <img src="portadas/ayunadores.jpg" alt="luz del mundo - Ayunadores" style="width: 100%;">
