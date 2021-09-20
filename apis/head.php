@@ -3,7 +3,7 @@
 if($_SERVER['SERVER_NAME'] == 'localhost' || $_SERVER['SERVER_NAME'] == '192.168.1.16'){
     $ruta_inicio = "/notiluz-mdb";
 }else{
-    $ruta_inicio = "/";
+    $ruta_inicio = "";
 }
 ?>
 

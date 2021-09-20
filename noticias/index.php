@@ -4,18 +4,21 @@ $importantes = obtener_importantes();
 $ultimas = obtener_7_ultimas_noticias();
 $etiquetas = obtener_etiquetas_recientes();
 
-var_dump($importantes);
+// var_dump($importantes);
 
 $imagenes_principales_html = "";
-foreach ($importantes as $nocitia) {
+$i = 0;
+foreach ($importantes as $noticia) {
+    $bannerActive = ($i == 0) ? 'active' : '';
     $imagenes_principales_html .= '
-    <div class="carousel-item active">
-        <img src="https://notiluz.com/apis/imagenes/" class="d-block w-100" />
-        <div class="carousel-caption d-none d-md-block">
-            <h5>'.$nocitia.'</h5>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+    <div class="carousel-item ' . $bannerActive . '">
+        <img src="https://notiluz.com/apis/imagenes/' . $noticia['baner'] . '" class="d-block w-100" />
+        <div class="carousel-caption" style="background-color: #0d2848a6 !important;">
+            <h5 class="banner-titulo-noticia">' . $noticia['titulo'] . '</h5>
+            <p class="d-none d-md-block">' . $noticia['subtitulo'] . '</p>
         </div>
     </div>';
+    $i++;
 }
 
 ?>
@@ -39,7 +42,142 @@ foreach ($importantes as $nocitia) {
     <meta property="og:image:width" content="250" />
     <meta property="og:image:height" content="250" />
 
+    <style>
+        .carta-contenido-noticia {
+            color: #333;
+        }
 
+        .carta-cuerpo-noticia {
+            padding: 0px 15px;
+        }
+
+        .lds-roller {
+            display: inline-block;
+            position: relative;
+            width: 80px;
+            height: 80px;
+        }
+
+        .lds-roller div {
+            animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+            transform-origin: 40px 40px;
+        }
+
+        .lds-roller div:after {
+            content: " ";
+            display: block;
+            position: absolute;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #2075F4;
+            margin: -4px 0 0 -4px;
+        }
+
+        .lds-roller div:nth-child(1) {
+            animation-delay: -0.036s;
+        }
+
+        .lds-roller div:nth-child(1):after {
+            top: 63px;
+            left: 63px;
+        }
+
+        .lds-roller div:nth-child(2) {
+            animation-delay: -0.072s;
+        }
+
+        .lds-roller div:nth-child(2):after {
+            top: 68px;
+            left: 56px;
+        }
+
+        .lds-roller div:nth-child(3) {
+            animation-delay: -0.108s;
+        }
+
+        .lds-roller div:nth-child(3):after {
+            top: 71px;
+            left: 48px;
+        }
+
+        .lds-roller div:nth-child(4) {
+            animation-delay: -0.144s;
+        }
+
+        .lds-roller div:nth-child(4):after {
+            top: 72px;
+            left: 40px;
+        }
+
+        .lds-roller div:nth-child(5) {
+            animation-delay: -0.18s;
+        }
+
+        .lds-roller div:nth-child(5):after {
+            top: 71px;
+            left: 32px;
+        }
+
+        .lds-roller div:nth-child(6) {
+            animation-delay: -0.216s;
+        }
+
+        .lds-roller div:nth-child(6):after {
+            top: 68px;
+            left: 24px;
+        }
+
+        .lds-roller div:nth-child(7) {
+            animation-delay: -0.252s;
+        }
+
+        .lds-roller div:nth-child(7):after {
+            top: 63px;
+            left: 17px;
+        }
+
+        .lds-roller div:nth-child(8) {
+            animation-delay: -0.288s;
+        }
+
+        .lds-roller div:nth-child(8):after {
+            top: 56px;
+            left: 12px;
+        }
+
+        @keyframes lds-roller {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @media only screen and (max-width: 450px) {
+            .banner-titulo-noticia {
+                font-size: 17px !important;
+            }
+
+            .carta-contenido-noticia {
+                font-size: 17px;
+            }
+
+            .carta-cuerpo-noticia {
+                padding: 15px 15px;
+            }
+
+        }
+
+        @media only screen and (max-width: 380px) {
+            .banner-titulo-noticia {
+                font-size: 15px !important;
+            }
+        }
+    </style>
+    <script src="./main.js"></script>
 </head>
 
 <body>
@@ -54,32 +192,7 @@ foreach ($importantes as $nocitia) {
             <?php include_once('../apis/sidebar.php') ?>
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                <!-- SLIDER HOME -->
-                <div id="carouselExampleIndicators" class="carousel slide" data-mdb-ride="carousel">
-
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="<?= $ruta_inicio ?>/img/slidertop1.jpg" class="d-block w-100" />
-                        </div>
-                        <div class="carousel-item">
-                            <img src="<?= $ruta_inicio ?>/img/slidertop2.jpg" class="d-block w-100" />
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleIndicators" data-mdb-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleIndicators" data-mdb-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
-                <!-- LOGOS -->
-                <div style="display: flex;justify-content: space-around;">
-                    <img src="<?= $ruta_inicio ?>/img/logo.png" style="width: 120px;height: 120px;">
-                    <img src="<?= $ruta_inicio ?>/img/logo-luz-del-mundo.png" style="width: 120px;height: 120px;">
-                </div>
-                <hr>
+                <?php include_once('../apis/slider-logo-header.php') ?>
 
 
                 <div class="align-items-center pt-3 pb-2 mb-3">
@@ -88,35 +201,10 @@ foreach ($importantes as $nocitia) {
                     <div class="row">
 
                         <!-- Carousel wrapper -->
-                        <div id="carruselNoticia" class="carousel slide carousel-fade" data-mdb-ride="carousel">
+                        <div id="carruselNoticia" class="col-12 carousel slide carousel-fade mb-5" data-mdb-ride="carousel">
                             <!-- Inner -->
                             <div class="carousel-inner">
-                                <!-- Single item -->
-                                <div class="carousel-item active">
-                                    <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(15).jpg" class="d-block w-100" alt="..." />
-                                    <div class="carousel-caption d-none d-md-block">
-                                        <h5>First slide label</h5>
-                                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                                    </div>
-                                </div>
-
-                                <!-- Single item -->
-                                <div class="carousel-item">
-                                    <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(22).jpg" class="d-block w-100" alt="..." />
-                                    <div class="carousel-caption d-none d-md-block">
-                                        <h5>Second slide label</h5>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                    </div>
-                                </div>
-
-                                <!-- Single item -->
-                                <div class="carousel-item">
-                                    <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(23).jpg" class="d-block w-100" alt="..." />
-                                    <div class="carousel-caption d-none d-md-block">
-                                        <h5>Third slide label</h5>
-                                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                                    </div>
-                                </div>
+                                <?= $imagenes_principales_html ?>
                             </div>
                             <!-- Inner -->
 
@@ -131,6 +219,26 @@ foreach ($importantes as $nocitia) {
                             </button>
                         </div>
                         <!-- Carousel wrapper -->
+
+                        <div id="contenedor_noticias"></div>
+                    
+
+                        <div class="col-12 text-center" id="loadingForm">
+                            <div class="lds-roller">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+
+                        <div class="text-center">
+                            <button id="botonVerMas" class="btn btn-primary">Ver más</button>
+                        </div>
 
 
 

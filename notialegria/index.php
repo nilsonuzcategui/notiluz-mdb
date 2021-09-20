@@ -11,7 +11,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>Notialegria | Notiluz</title>
     <meta name="description" content="<?=$descriptionAux?>">
-    <meta property="og:title" content="Notiluz | Noticias Luz del Mundo" />
+    <meta property="og:title" content="Notialegria | Notiluz" />
     <meta property="og:description" content="<?=$descriptionAux?>" />
     <meta property="og:url" content="hptts://notiluz.com/">
     <meta property="og:site_name" content="Notiluz" />
