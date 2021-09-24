@@ -489,8 +489,10 @@ if ($opt == 'add-noticia') {
         //RUTA PARA IMAGENES
         if ($_SERVER['SERVER_NAME'] == 'localhost' || $_SERVER['SERVER_NAME'] == '192.168.1.16') {
             $ruta_inicio = "/notiluz-mdb/";
+            $ruta_img = '/notiluz-mdb/apis/imagenes/';
         } else {
             $ruta_inicio = "/";
+            $ruta_img = '/apis/imagenes/';
         }
         $html = '';
         while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
@@ -515,11 +517,11 @@ if ($opt == 'add-noticia') {
             <a href="<?= $ruta_inicio ?>noticia/?n=<?= $row['noticia_url'] ?>&i=<?= $row['idnoticia'] ?>" class="col-md-12 card mb-3">
                 <div class="row g-0">
                     <div class="col-md-2">
-                        <img src="https://notiluz.com/apis/imagenes/<?= $row['imagen'] ?>" alt="<?= $row['titulo'] ?>" class="img-fluid" />
+                        <img src="<?= $ruta_img . $row['imagen'] ?>" alt="<?= $row['titulo'] ?>" class="img-fluid" />
                     </div>
                     <div class="col-md-8">
                         <div class="card-body carta-cuerpo-noticia">
-                            <h5 class="card-title"><?= $row['titulo'] ?>s</h5>
+                            <h5 class="card-title"><?= $row['titulo'] ?></h5>
                             <span class="text-muted"><?= $row['subtitulo'] ?></span>
                             <p class="card-text carta-contenido-noticia">
                                 <?= $contenidoAux ?>

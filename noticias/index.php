@@ -4,7 +4,11 @@ $importantes = obtener_importantes();
 $ultimas = obtener_7_ultimas_noticias();
 $etiquetas = obtener_etiquetas_recientes();
 
-// var_dump($importantes);
+if ($_SERVER['SERVER_NAME'] == 'localhost') {
+    $ruta_noticia = "/notiluz-mdb/apis/imagenes/";
+} else {
+    $ruta_noticia = "/apis/imagenes/";
+}
 
 $imagenes_principales_html = "";
 $i = 0;
@@ -12,7 +16,7 @@ foreach ($importantes as $noticia) {
     $bannerActive = ($i == 0) ? 'active' : '';
     $imagenes_principales_html .= '
     <div class="carousel-item ' . $bannerActive . '">
-        <img src="https://notiluz.com/apis/imagenes/' . $noticia['baner'] . '" class="d-block w-100" />
+        <img src="' . $ruta_noticia . $noticia['baner'] . '" class="d-block w-100" />
         <div class="carousel-caption" style="background-color: #0d2848a6 !important;">
             <h5 class="banner-titulo-noticia">' . $noticia['titulo'] . '</h5>
             <p class="d-none d-md-block">' . $noticia['subtitulo'] . '</p>
@@ -221,7 +225,7 @@ foreach ($importantes as $noticia) {
                         <!-- Carousel wrapper -->
 
                         <div id="contenedor_noticias"></div>
-                    
+
 
                         <div class="col-12 text-center" id="loadingForm">
                             <div class="lds-roller">
