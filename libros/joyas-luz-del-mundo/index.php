@@ -32,8 +32,8 @@
     <meta property="article:publisher" content="https://www.facebook.com/PeriodicoNotiluzInternacional/">
     <meta property="article:section" content="Libros">
 
-    <meta property="og:image" content="<?= $ruta_inicio ?>libros/portadas/joyas-luz-del-mundo-redes.jpg" />
-    <meta property="og:image:secure_url" content="<?= $ruta_inicio ?>libros/portadas/joyas-luz-del-mundo-redes.jpg">
+    <meta property="og:image" content="/libros/portadas/joyas-luz-del-mundo-redes.jpg" />
+    <meta property="og:image:secure_url" content="/libros/portadas/joyas-luz-del-mundo-redes.jpg">
     <meta property="og:image:width" content="300" />
     <meta property="og:image:height" content="453" />
     <meta property="og:image:alt" content="Libro Joyas Luz del Mundo">
@@ -125,24 +125,27 @@
     <script>
         $(document).ready(function() {
             var src = [
-                'img/joyas luz del mundo_pages-to-jpg-0001.jpg',
-                'img/joyas luz del mundo_pages-to-jpg-0002.jpg',
-                'img/joyas luz del mundo_pages-to-jpg-0003.jpg',
-                'img/joyas luz del mundo_pages-to-jpg-0004.jpg',
-                'img/joyas luz del mundo_pages-to-jpg-0005.jpg',
-                'img/joyas luz del mundo_pages-to-jpg-0006.jpg',
-                'img/joyas luz del mundo_pages-to-jpg-0007.jpg',
-                'img/joyas luz del mundo_pages-to-jpg-0008.jpg',
-                'img/joyas luz del mundo_pages-to-jpg-0009.jpg',
-                'img/joyas luz del mundo_pages-to-jpg-0010.jpg',
-                'img/joyas luz del mundo_pages-to-jpg-0011.jpg',
-                'img/joyas luz del mundo_pages-to-jpg-0012.jpg',
-                'img/joyas luz del mundo_pages-to-jpg-0013.jpg',
-                'img/joyas luz del mundo_pages-to-jpg-0014.jpg',
-                'img/joyas luz del mundo_pages-to-jpg-0015.jpg',
-                'img/joyas luz del mundo_pages-to-jpg-0016.jpg',
-                'img/joyas luz del mundo_pages-to-jpg-0017.jpg',
+                <?php
 
+                for ($i = 1; $i <= 78; $i++) {
+                    $numero = $i;
+                    $string_procesado_numero = '';
+                    if (strlen($numero) == 1) {
+                        $string_procesado_numero = '000' . $numero;
+                    } elseif (strlen($numero) == 2) {
+                        $string_procesado_numero = '00' . $numero;
+                    } elseif (strlen($numero) == 3) {
+                        $string_procesado_numero = '0' . $numero;
+                    } else {
+                        $string_procesado_numero = $numero;
+                    }
+
+                    echo '
+                        "img/' . $string_procesado_numero . '.jpg",
+                    ';
+                }
+
+                ?>
             ];
 
             $('#mybook').onebook(src, {
@@ -193,7 +196,7 @@
             <div class="col-md-12">
                 <br><br><br><br>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <h2 class="titulo-fuente" style="color:#fff;">Joyas de la Luz del Mundo</h2>
                 <hr>
                 <p style="color:#fff;">
@@ -204,7 +207,7 @@
             </div>
 
 
-            <div id="contenedor_libro" class="col-md-8 d-sm-none d-md-block" style="background-color: #9a9a9a;padding: 10px !important;">
+            <div id="contenedor_libro" class="col-md-12 d-sm-none d-md-block" style="background-color: #9a9a9a;padding: 10px !important;">
                 <div id="mybook"></div>
             </div>
 
@@ -213,56 +216,31 @@
                 <div id="carouselExampleControls" class="carousel slide" data-mdb-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img class="d-block w-100" src="img/joyas luz del mundo_pages-to-jpg-0001.jpg">
+                            <img class="d-block w-100" src="img/0001.jpg">
                         </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="img/joyas luz del mundo_pages-to-jpg-0002.jpg">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="img/joyas luz del mundo_pages-to-jpg-0003.jpg">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="img/joyas luz del mundo_pages-to-jpg-0004.jpg">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="img/joyas luz del mundo_pages-to-jpg-0005.jpg">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="img/joyas luz del mundo_pages-to-jpg-0006.jpg">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="img/joyas luz del mundo_pages-to-jpg-0007.jpg">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="img/joyas luz del mundo_pages-to-jpg-0008.jpg">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="img/joyas luz del mundo_pages-to-jpg-0009.jpg">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="img/joyas luz del mundo_pages-to-jpg-0010.jpg">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="img/joyas luz del mundo_pages-to-jpg-0011.jpg">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="img/joyas luz del mundo_pages-to-jpg-0012.jpg">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="img/joyas luz del mundo_pages-to-jpg-0013.jpg">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="img/joyas luz del mundo_pages-to-jpg-0014.jpg">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="img/joyas luz del mundo_pages-to-jpg-0015.jpg">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="img/joyas luz del mundo_pages-to-jpg-0016.jpg">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="img/joyas luz del mundo_pages-to-jpg-0017.jpg">
-                        </div>
+                        <?php
+
+                        for ($i = 2; $i <= 78; $i++) {
+                            $numero = $i;
+                            $string_procesado_numero = '';
+                            if (strlen($numero) == 1) {
+                                $string_procesado_numero = '000' . $numero;
+                            } elseif (strlen($numero) == 2) {
+                                $string_procesado_numero = '00' . $numero;
+                            } elseif (strlen($numero) == 3) {
+                                $string_procesado_numero = '0' . $numero;
+                            } else {
+                                $string_procesado_numero = $numero;
+                            }
+
+                            echo '
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="img/' . $string_procesado_numero . '.jpg">
+                            </div>
+                            ';
+                        }
+
+                        ?>
                     </div>
                     <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleControls" data-mdb-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
